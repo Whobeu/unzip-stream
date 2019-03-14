@@ -26,7 +26,7 @@ test("extract archive w/ file size unknown flag set (created by OS X Finder)", f
     if (err) {
       throw err;
     }
-    var unzipExtractor = unzip.Extract({ path: dirPath });
+    var unzipExtractor = unzip.Extract({ path: dirPath, times: true });
     unzipExtractor.on('error', function(err) {
       throw err;
     });
@@ -55,7 +55,7 @@ test("archive w/ language encoding flag set", function (t) {
     if (err) {
       throw err;
     }
-    var unzipExtractor = unzip.Extract({ path: dirPath });
+    var unzipExtractor = unzip.Extract({ path: dirPath, times: true });
     unzipExtractor.on('error', function(err) {
       throw err;
     });

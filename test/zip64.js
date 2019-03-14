@@ -26,7 +26,7 @@ test("extract zip64 archive", function (t) {
     if (err) {
       throw err;
     }
-    var unzipExtractor = unzip.Extract({ path: dirPath });
+    var unzipExtractor = unzip.Extract({ path: dirPath, times: true });
     unzipExtractor.on('error', function(err) {
       throw err;
     });
@@ -67,7 +67,7 @@ test("extract archive w/ zip64 local file", function (t) {
     if (err) {
       throw err;
     }
-    var unzipExtractor = unzip.Extract({ path: dirPath });
+    var unzipExtractor = unzip.Extract({ path: dirPath, times: true });
     unzipExtractor.on('error', function(err) {
       throw err;
     });

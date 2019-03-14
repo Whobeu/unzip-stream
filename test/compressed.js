@@ -26,7 +26,7 @@ test("extract compressed archive w/ file sizes known prior to zlib inflation (cr
     if (err) {
       throw err;
     }
-    var unzipExtractor = unzip.Extract({ path: dirPath });
+    var unzipExtractor = unzip.Extract({ path: dirPath, times: true });
     unzipExtractor.on('error', function(err) {
       throw err;
     });

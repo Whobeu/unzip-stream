@@ -26,7 +26,7 @@ test("extract archive w/ trailing data", function (t) {
     if (err) {
       throw err;
     }
-    var unzipExtractor = unzip.Extract({ path: dirPath });
+    var unzipExtractor = unzip.Extract({ path: dirPath, times: true });
     unzipExtractor.on('error', function(err) {
       throw err;
     });

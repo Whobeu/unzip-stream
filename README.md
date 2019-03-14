@@ -1,4 +1,4 @@
-# unzip-stream [![Build Status](https://travis-ci.org/mhr3/unzip-stream.svg?branch=master)](https://travis-ci.org/mhr3/unzip-stream)
+# unzip-stream-2 [![Build Status](https://travis-ci.org/mhr3/unzip-stream.svg?branch=master)](https://travis-ci.org/mhr3/unzip-stream)
 
 Streaming cross-platform unzip tool written in node.js.
 
@@ -10,7 +10,7 @@ Please note that the zip file format isn't really meant to be processed by strea
 ## Installation
 
 ```bash
-$ npm install unzip-stream
+$ npm install unzip-stream-2
 ```
 
 ## Quick Examples
@@ -66,13 +66,15 @@ fs.createReadStream('path/to/archive.zip')
 
 ### Extract to a directory
 ```javascript
-fs.createReadStream('path/to/archive.zip').pipe(unzip.Extract({ path: 'output/path' }));
+fs.createReadStream('path/to/archive.zip').pipe(unzip.Extract({ path: 'output/path', times: true }));
 ```
 
 Extract will emit the 'close' event when the archive is fully extracted, do NOT use the 'finish' event, which can be emitted before the writing finishes.
 
 ### Extra options
 The `Parse` and `Extract` methods allow passing an object with `decodeString` property which will be used to decode non-utf8 file names in the archive. If not specified a fallback will be used.
+
+The `times` property allows for restoration of the last modified date and time of the restored file.
 ```javascript
 let parser = unzip.Parse({ decodeString: (buffer) => { return iconvLite.decode(buffer, 'iso-8859-2'); } });
 input.pipe(parser).pipe(...);
